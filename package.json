@@ -1,0 +1,25 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Algorithm Visualisation app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elena-gancheva/Ava.git"
+  },
+  "keywords": [
+    "nodejs",
+    "es6",
+    "express",
+    "mongoDB"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elena-gancheva/Ava/issues"
+  },
+  "homepage": "https://github.com/elena-gancheva/Ava#readme"
+}
