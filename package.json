@@ -1,11 +1,16 @@
 {
-  "name": "y",
+  "name": "ava",
   "version": "1.0.0",
   "description": "Algorithm Visualisation app.",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www"
+=======
+    "start": "webpack-dev-server --inline --hot",
+    "build": "webpack -p"
+>>>>>>> 2518b82bf9d843f5bf359366d72398931b93ff83
   },
   "repository": {
     "type": "git",
@@ -41,5 +46,25 @@
   "bugs": {
     "url": "https://github.com/elena-gancheva/Ava/issues"
   },
-  "homepage": "https://github.com/elena-gancheva/Ava#readme"
+  "homepage": "https://github.com/elena-gancheva/Ava#readme",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "file-loader": "^0.9.0",
+    "node-sass": "^4.1.0",
+    "sass-loader": "^4.1.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.1.0-beta.28",
+    "webpack-dev-server": "^2.2.0-rc.0",
+    "path": "^0.12.7",
+    "raw-loader": "^0.5.1"
+  },
+  "dependencies": {
+    "vue": "^2.1.10",
+    "vue-router": "^2.2.0"
+  }
 }

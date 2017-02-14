@@ -50,3 +50,7 @@ public/javascripts/templates.js
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# WebPack
+dist
+debug.log
