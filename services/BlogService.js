@@ -15,6 +15,7 @@ class BlogService {
             (typeof data.content) !== 'string') {
 
             callback({success: false, error: WRONG_DATA});
+
             return;
         }
 
@@ -33,9 +34,11 @@ class BlogService {
             callback({success: true, article: article});
         });
     }
+
     static createArticle (input, callback) {
 
     }
+
     static getArticleById (data, callback) {
         if (!data || !data.articleId) {
             callback({success: false, error: WRONG_DATA});
@@ -53,6 +56,7 @@ class BlogService {
                 callback({success: true, article: article});
             });
     }
+
     static addComment (input, callback) {
         let createdComment;
         let data = input.data;

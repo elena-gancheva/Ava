@@ -1,8 +1,3 @@
-/**
- * Created by MelatroN on 08/01/2016.
- */
-'use strict';
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
@@ -27,6 +22,7 @@ var User = new Schema({
 });
 
 let options = ({missingPasswordError: "Wrong password"});
+
 User.plugin(passportLocalMongoose, options);
 
 module.exports = mongoose.model('User', User);

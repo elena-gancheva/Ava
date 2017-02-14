@@ -1,7 +1,3 @@
-/**
- * Created by MelatroN on 21/01/2016.
- */
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

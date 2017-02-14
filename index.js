@@ -50,9 +50,9 @@ app.use(require('express-session')({
     saveUninitialized: false,
     store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 app.use('/', routes);
 app.use('/users', users);
@@ -61,7 +61,8 @@ app.use('/algorithm', algorithm);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    var err = new Error('Not Found');
+    let err = new Error('Not Found');
+
     err.status = 404;
     next(err);
 });

@@ -9,6 +9,7 @@ class BlogController {
             res.json(data);
         });
     }
+
     static getArticleById(req, res) {
         let data = req.body;
 
@@ -16,6 +17,7 @@ class BlogController {
             res.json(data);
         });
     }
+
     static commentArticle(req, res) {
         let user = req.user;
         let data = req.body;
@@ -33,12 +35,15 @@ class BlogController {
             }
         });
     }
+
     static replyComment(req, res) {
         res.json({dude: 'a'});
     }
+
     static getArticlesByTag(req, res) {
         res.json({dude: 'a'});
     }
+
     static getArticlesByUsername(req, res) {
         res.json({dude: 'a'});
     }

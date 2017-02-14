@@ -12,6 +12,7 @@ class AlgorithmService {
             sortedArr: comboSort.array
         });
     }
+
     static getQuickActions(input, callback) {
         const comboSort = new Quick(input);
 

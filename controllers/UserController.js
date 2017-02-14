@@ -19,6 +19,7 @@ class UserController {
             }
         });
     }
+
     static login(req, res) {
         User.authenticate()(req.body.username, req.body.password, function (err, user, options) {
             if (err) return next(err);
@@ -37,6 +38,7 @@ class UserController {
             }
         });
     }
+
     static getLogin(req, res) {
         console.log(req.user);
         if (req.user) {
@@ -48,11 +50,11 @@ class UserController {
 
         } //res.send(500, {status:500, message: 'internal error', type:'internal'}); == deprecated
 
-
         res.send({
             success: false,
             message: 'not authorized'
         });
     }
 }
+
 module.exports = UserController;

@@ -22,7 +22,7 @@ class AlgorithmController {
             array = [5, 8, 4, 3, 9, 10, 20, -4, 7, 1, 15, 23, 31, -10];
         }
 
-        AlgorithmService.getQuickActions(array,  (data) => {
+        AlgorithmService.getQuickActions(array, (data) => {
             res.json(data);
         });
     }

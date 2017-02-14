@@ -1,4 +1,4 @@
-const BaseSortClass = require("./BaseSortClass");
+const BaseSortClass = require("./base-classes/BaseSortClass");
 
 class QuickSortClass extends BaseSortClass {
     constructor(array) {

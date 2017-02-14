@@ -1,6 +1,7 @@
 const express = require('express');
 const AlgorithmController = require('../controllers/AlgorithmController');
-var router = express.Router();
+
+const router = express.Router();
 
 function ensureLocalAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {

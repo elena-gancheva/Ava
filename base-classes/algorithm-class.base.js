@@ -1,1 +1,0 @@
-// Base algorithm class here
