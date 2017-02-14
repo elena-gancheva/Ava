@@ -1,1 +1,0 @@
-// When hitting '/' route
