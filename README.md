@@ -1,2 +1,2 @@
 # Ava
-App for Algorithm Visualisation. 
+App for Visualizing Algorithms. 
