@@ -1,5 +1,5 @@
 const express = require('express');
-const AlgorithmController = require('../controllers/AlgorithmController');
+const AlgorithmController = require('../controllers/algorithm-controller');
 
 const router = express.Router();
 

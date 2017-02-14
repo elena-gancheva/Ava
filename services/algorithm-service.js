@@ -1,5 +1,5 @@
-const Combo = require('../classes/CombSortClass');
-const Quick = require('../classes/QuickSortClass');
+const Combo = require('../classes/comb-sort.class');
+const Quick = require('../classes/quick-sort.class');
 
 class AlgorithmService {
     static getComboActions(input, callback) {

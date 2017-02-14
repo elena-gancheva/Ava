@@ -1,4 +1,4 @@
-const AlgorithmService = require('../services/AlgorithmService');
+const AlgorithmService = require('../services/algorithm-service');
 
 class AlgorithmController {
     static combSort(req, res) {

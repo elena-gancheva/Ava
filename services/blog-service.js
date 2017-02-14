@@ -1,5 +1,5 @@
-const Article = require('../models/Article');
-const Comment = require('../models/Comment');
+const Article = require('../models/article-model');
+const Comment = require('../models/comment-model');
 
 const WRONG_DATA = 'Wrong data given';
 

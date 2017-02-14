@@ -1,4 +1,4 @@
-const BlogService = require('../services/BlogService');
+const BlogService = require('../services/blog-service');
 
 class BlogController {
     static postArticle(req, res) {

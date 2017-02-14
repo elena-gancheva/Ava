@@ -1,4 +1,4 @@
-const BaseSortClass = require("./base-classes/BaseSortClass");
+const BaseSortClass = require("./base-classes/base-sort.class");
 const divisor = 1.3;
 
 class CombSortClass extends BaseSortClass {
