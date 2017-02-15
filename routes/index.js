@@ -1,11 +1,11 @@
 const express = require('express');
 const UserController = require('../controllers/user-controller');
-
+const path = require('path');
 const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res){
-    res.render('home');
+    res.sendFile(path.join(__dirname+'/../app.html'));
 });
 
 /* POST users listing. */

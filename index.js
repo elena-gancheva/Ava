@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const hbs = require('hbs');
 
 const passport = require('passport');
-const User = require('./models/User');
+const User = require('./models/user-model');
 const mongoose = require('mongoose');
 
 const routes = require('./routes/index');
@@ -18,12 +18,26 @@ const algorithm = require('./routes/algorithm');
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const html = require('html');
+
+const webpack = require("webpack");
+const webpackConfig = require("./webpack.config");
 
 const app = express();
 
+webpack(webpackConfig, (err, stats) => {
+    if (err) {
+        console.log(err);
+        return;
+    }
+
+    console.log(stats);
+});
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'hbs');
+//app.set('view engine', 'html');
 
 //initialize passport
 passport.use(User.createStrategy());
@@ -41,8 +55,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
-app.use(require('stylus').middleware(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.use(require('express-session')({
     secret: 'keyboard cat',
@@ -54,41 +67,46 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// app.get('/',function(req,res){
+//     res.sendFile(path.join(__dirname+'/app.html'));
+//     //__dirname : It will resolve to your project folder.
+// });
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/blog', blog);
 app.use('/algorithm', algorithm);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    let err = new Error('Not Found');
-
-    err.status = 404;
-    next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
+// app.use(function (req, res, next) {
+//     let err = new Error('Not Found');
+//
+//     err.status = 404;
+//     next(err);
+// });
+//
+// // error handlers
+//
+// // development error handler
+// // will print stacktrace
+// if (app.get('env') === 'development') {
+//     app.use(function (err, req, res, next) {
+//         res.status(err.status || 500);
+//         res.render('error', {
+//             message: err.message,
+//             error: err
+//         });
+//     });
+// }
+//
+// // production error handler
+// // no stacktraces leaked to user
+// app.use(function (err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//         message: err.message,
+//         error: {}
+//     });
+// });
 
 module.exports = app;

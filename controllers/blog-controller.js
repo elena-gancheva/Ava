@@ -5,7 +5,7 @@ class BlogController {
         let user = req.user;
         let data = req.body;
 
-        BlogService.createArticle({data, user}, function (data) {
+        BlogService.createArticle({data, user}, (data) => {
             res.json(data);
         });
     }
@@ -13,7 +13,7 @@ class BlogController {
     static getArticleById(req, res) {
         let data = req.body;
 
-        BlogService.getArticleById(data, function (data) {
+        BlogService.getArticleById(data, (data) => {
             res.json(data);
         });
     }
@@ -23,11 +23,11 @@ class BlogController {
         let data = req.body;
         let article;
 
-        BlogService.getArticleById({articleId: data.articleId}, function (articleData) {
+        BlogService.getArticleById({articleId: data.articleId}, (articleData) => {
             if (articleData.success) {
                 article = articleData.article;
 
-                BlogService.addComment({data, user, article}, function (result) {
+                BlogService.addComment({data, user, article}, (result) => {
                     res.json(result);
                 });
             } else {
