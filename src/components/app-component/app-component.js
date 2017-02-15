@@ -1,8 +1,14 @@
-const Vue = require('vue/dist/vue');
+const Vue = require('vue');
 const appComponentTemplate = require('./app-component.html');
 
-const AppComponent = Vue.extend({
-  template: appComponentTemplate
-});
+require('./app-component.scss');
 
-export default AppComponent;
+module.exports = Vue.extend({
+    name: 'app-component',
+    template: appComponentTemplate,
+    data() {
+        return {
+          message: 'hhhhhhhhhhhh'
+      }
+    }
+});
