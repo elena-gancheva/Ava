@@ -7,12 +7,25 @@ module.exports = {
     template: appComponentTemplate,
     data() {
         return {
-          message: 'hhhhhhhhhhhh'
+          password: '',
+          username: ''
       }
     },
     methods: {
-        goThere() {
-            this.$router.push('/visualise-component');
+        submit() {
+            const that = this;
+
+            that.$http.post('/register', { password, username })
+                .then((response) => {
+                    // that.$http.post('/login', { password, username })
+                    //     .then((res) => {
+                            this.$router.push('/visualise-component');
+                        // })
+                });
         }
+
+        // goThere() {
+        //     this.$router.push('/visualise-component');
+        // }
     }
 };
