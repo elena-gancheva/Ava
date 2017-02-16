@@ -5,8 +5,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const hbs = require('hbs');
-
 const passport = require('passport');
 const User = require('./models/user-model');
 const mongoose = require('mongoose');
