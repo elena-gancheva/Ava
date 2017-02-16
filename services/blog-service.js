@@ -2,6 +2,7 @@ const Article = require('../models/article-model');
 const Comment = require('../models/comment-model');
 
 const WRONG_DATA = 'Wrong data given';
+const STRING = 'string';
 
 class BlogService {
     static createArticle (input, callback) {
@@ -11,8 +12,8 @@ class BlogService {
 
         if (!data ||
             !user ||
-            (typeof data.title) !== 'string' ||
-            (typeof data.content) !== 'string') {
+            (typeof data.title) !== STRING ||
+            (typeof data.content) !== STRING) {
 
             callback({success: false, error: WRONG_DATA});
 
@@ -25,18 +26,14 @@ class BlogService {
             content: data.content
         });
 
-        createdArticle.save(function (err, article) {
+        createdArticle.save((err, article) => {
             if (err) {
-                callback({success: false, error: err})
+                callback({success: false, error: err});
                 return;
             }
 
             callback({success: true, article: article});
         });
-    }
-
-    static createArticle (input, callback) {
-
     }
 
     static getArticleById (data, callback) {
@@ -47,7 +44,7 @@ class BlogService {
 
         Article.findOne({_id: data.articleId})
             .populate('comments')
-            .exec(function (err, article) {
+            .exec((err, article) => {
                 if (err) {
                     callback({success: false, error: err});
                     return;
@@ -66,7 +63,7 @@ class BlogService {
         if (!data ||
             !user ||
             !data.articleId ||
-            (typeof data.content) !== 'string') {
+            (typeof data.content) !== STRING) {
 
             callback({success: false, error: WRONG_DATA});
             return;
@@ -77,14 +74,14 @@ class BlogService {
             content: data.content
         });
 
-        createdComment.save(function (err, comment) {
+        createdComment.save((err, comment) => {
             if (err) {
                 callback({success: false, error: err});
                 return;
             }
 
             article.comments.push(comment);
-            article.save(function (err, article) {
+            article.save((err, article) => {
                 if (err) {
                     callback({success: false, error: err});
                     return;

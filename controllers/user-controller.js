@@ -7,7 +7,7 @@ class UserController {
         User.register(new User({
             username: req.body.username,
             firstName: req.body.firstname
-        }), req.body.password, function (err, user) {
+        }), req.body.password, (err, user) => {
             if (err) {
                 console.log(err);
                 return res.send(err);
@@ -21,7 +21,7 @@ class UserController {
     }
 
     static login(req, res) {
-        User.authenticate()(req.body.username, req.body.password, function (err, user, options) {
+        User.authenticate()(req.body.username, req.body.password, (err, user, options) => {
             if (err) return next(err);
             if (user === false) {
                 res.status(400).send({
@@ -29,7 +29,7 @@ class UserController {
                     success: false
                 });
             } else {
-                req.login(user, function (err) {
+                req.login(user, (err) => {
                     res.send({
                         success: true,
                         user: user
