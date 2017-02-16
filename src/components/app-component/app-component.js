@@ -7,25 +7,23 @@ module.exports = {
     template: appComponentTemplate,
     data() {
         return {
-          password: '',
-          username: ''
-      }
+            firstname: '',
+            password: '',
+            username: ''
+        }
     },
     methods: {
         submit() {
-            const that = this;
+            const credentials = {
+                firstname: this.firstname,
+                password: this.password,
+                username: this.username
+            };
 
-            that.$http.post('/register', { password, username })
+            this.$http.post('/register', credentials)
                 .then((response) => {
-                    // that.$http.post('/login', { password, username })
-                    //     .then((res) => {
-                            this.$router.push('/visualise-component');
-                        // })
+                    this.$router.push('/visualise-component');
                 });
         }
-
-        // goThere() {
-        //     this.$router.push('/visualise-component');
-        // }
     }
 };

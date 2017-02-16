@@ -2,6 +2,7 @@ const _ = require('lodash');
 
 const Vue = require('vue');
 const VueRouter = require("vue-router");
+const VueResource = require("vue-resource");
 const AppTemplate = require('./index.html');
 
 const AppComponent = require('./components/app-component/app-component');
@@ -11,6 +12,7 @@ require('./lib/sass/grayscale.scss');
 require('./app.scss');
 
 Vue.use(VueRouter);
+Vue.use(VueResource);
 
 const routes = [];
 const req = require.context("components", true, /(\w|-)+\.(js)$/);
